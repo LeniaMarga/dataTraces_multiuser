@@ -1,0 +1,63 @@
+
+<html class="a-html">
+<head>
+  <title>data traces</title>
+  <meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
+  <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
+  <meta aframe-injected="" name="theme-color" content="black">
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/aframe/0.5.0/aframe.js"></script> -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <style type="text/css" data-href="src/style/aframe.css"></style>
+</head>
+<body>
+  <a-scene class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" auto-enter-vr="">
+    <a-entity camera="" position="2 0 3" look-controls="" wasd-controls="" rotation="" scale="0.7 0.7 0.7" visible="">
+      <a-entity cursor="fuse: true; fuseTimeout: 1000" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: black; shader: flat" rotation="" scale="" visible="" raycaster="objects:.hotspot">
+        <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+      </a-entity>
+    </a-entity>
+
+    <a-entity id="scene1" position="" rotation="" scale="" visible="">
+      <a-sky src="./Interiors_360/artist_workshop.jpg" rotation="0 -130 0">
+      </a-sky>
+      <a-text font="kelsonsans" value="old atelier, 1950" width="5" position="0 0 1" rotation=""></a-text>
+      <a-text font="kelsonsans" value="Our environments have the capacity to tell stories about our past through 'data-traces'." width="3" position="0 1 1" rotation=""></a-text>
+      <a-text font="kelsonsans" value="This is a 360 experience of a space transforming in time...." width="3" position="0 0.5 1" rotation=""></a-text>
+      <!-- <a-text font="kelsonsans" value="click to travel in time" width="2" position="2 -3 1" rotation=""></a-text> -->
+      <a-sphere class="hotspot" color="yellow" onclick="setScene2()" position="5 0 -5" rotation="" scale="" visible="" material="" geometry="">
+      </a-sphere>
+      <a-light id="ambient1" type="ambient" color="#4f6487" position="" rotation="" scale="" visible="" light="">
+        <a-animation attribute="intensity" begin="aaa" from="0" to="1" delay="100" dur="1000" fill="both"></a-animation>
+      </a-light>
+    </a-entity>
+
+    <a-entity id="scene2" visible="false" position="" rotation="" scale="">
+      <a-sky src="./Interiors_360/photo_studio_01.jpg" rotation="0 -130 0"></a-sky>
+      <a-text font="kelsonsans" value="loft apartment" width="5" position="1 -1 1" rotation=""></a-text>
+      <a-text font="kelsonsans" value="...what knowledge can we acquire for the people inhibiting these spaces" width="5" position="1 1 1" rotation=""></a-text>
+      <a-sphere class="hotspot" color="yellow" position="-5 0 -5" onclick="setScene1()" rotation="" scale="" visible="" material="" geometry=""> </a-sphere>
+      <!-- <a-text font="kelsonsans" value="click to travel in time" width="3" position="1 -1 1" rotation=""></a-text> -->
+      <a-light id="ambient2" type="ambient" color="#FFFFFF" position="" rotation="" scale="" visible="" light="">
+        <a-animation attribute="intensity" begin="aaa" from="0" to="1" delay="100" dur="1000" fill="both"></a-animation>
+      </a-light>
+    </a-entity>
+
+     <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="889" height="878" style="width: 889px; height: 878px;"></canvas>
+   </a-scene>
+
+  <script type="text/javascript">
+
+  function setScene2() {
+    document.getElementById('scene1').setAttribute('visible', 'false')
+    document.getElementById('scene2').setAttribute('visible', 'true')
+
+  }
+  function setScene1() {
+    document.getElementById('scene2').setAttribute('visible', 'false')
+    document.getElementById('scene1').setAttribute('visible', 'true')
+  }
+  </script>
+
+</body>
+</html>
