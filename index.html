@@ -5,7 +5,7 @@
   <meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
   <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
   <meta aframe-injected="" name="theme-color" content="black">
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/aframe/0.5.0/aframe.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/deepstream.io-client-js/2.1.1/deepstream.js"></script>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <style type="text/css" data-href="src/style/aframe.css"></style>
 </head>
@@ -47,6 +47,16 @@
    </a-scene>
 
   <script type="text/javascript">
+  
+  var client = deepstream("<YOUR APP URL>");
+  client.login({}, function(success, data) {
+    if (success) {
+      startApp(data);
+    } else {
+      //handle login failed
+    }
+  });
+
 
   function setScene2() {
     document.getElementById('scene1').setAttribute('visible', 'false')
